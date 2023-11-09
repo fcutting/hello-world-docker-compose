@@ -1,0 +1,6 @@
+services:
+  helloworld:
+    build:
+      dockerfile: helloworld.Dockerfile
+    ports:
+      - "8123:8123"
