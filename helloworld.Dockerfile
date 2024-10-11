@@ -1,7 +1,10 @@
-FROM golang:1.20-alpine
+FROM golang:latest AS build
 WORKDIR /app
 COPY go.mod ./
 RUN go mod download
 COPY ./cmd/helloworld ./
 RUN go build main.go
-CMD ["./main"]
+
+FROM debian:latest
+COPY --from=build /app/main /app/main
+ENTRYPOINT ["/app/main"]

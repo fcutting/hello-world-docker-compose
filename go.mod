@@ -1,3 +1,3 @@
 module hello-world-docker-compose
 
-go 1.19
+go 1.23
